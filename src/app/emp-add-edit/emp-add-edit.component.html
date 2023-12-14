@@ -1,0 +1,48 @@
+<div mat-dialog-title>
+  <h1>{{data ? 'Actualzar': 'Registrar'}} Empleado</h1>
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" placeholder="Nombre" formControlName="nombre">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Edad</mat-label>
+        <input matInput type="number" formControlName="edad">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha de nacimeinto</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Estatus</mat-label>
+        <mat-select formControlName="estatus">
+          <mat-option *ngFor="let val of estatus" [value]="val">{{val}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Cargo</mat-label>
+        <mat-select formControlName="cargo">
+          <mat-option *ngFor="let val of cargos" [value]="val">{{val}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancelar</button>
+    <button mat-raised-button color="primary" type="submit">{{data ? 'Actualzar': 'Guardar'}}</button>
+  </div>
+</form>

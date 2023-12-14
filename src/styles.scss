@@ -1,0 +1,24 @@
+html, body { height: 100%; }
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.main-body {
+  padding: 20px;
+}
+
+.filter-container {
+  margin-bottom: 20px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+mat-form-field {
+  margin-right: 20px;
+}
+
+mat-paginator {
+  margin-top: 20px;
+}
+
